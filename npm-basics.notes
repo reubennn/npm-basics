@@ -1,0 +1,132 @@
+* // ---------- INIT ---------- // *
+# Initiliase npm in the current project
+// Base command to initiliase a new PACKAGE.JSON file, run in project directory terminal:
+npm init
+
+* // ---------- ADDING PACKAGES ---------- // *
+# Add packages locally
+npm install <package-name>
+npm install <package1> <package2> <package3> // List all packages to install in one line
+
+// Package is synonymous for dependency, module
+
+* // ---------- DEV DEPENDENCIES ---------- // *
+// Tell npm to install packages as dev tools\
+// Therefore, they won't be included in the production build after compiling
+// But will be used throughout the development
+# Install dependencies
+npm install <package> --save-dev
+
+* // ---------- GLOBAL DIRECTORIES ---------- // *
+# Install a package globablly
+npm install -g <package>
+OR:
+npm install -global <package>
+
+#Unix-based systems (Mac/Linux)
+/usr/local/lib/node_modules 
+OR:
+/usr/local/lib/node
+
+# Windows 7 or later
+%AppData%\npm\node_modules
+
+* // ---------- UPDATING PACKAGES ---------- // *
+# Install a specific version of a package
+npm install <package>@x.x.x
+
+# Check local dependencies for update
+npm outdated
+
+# Check for global dependencies for update
+npm outdated -g
+
+// Current is the currently install version
+// Wanted is the preferred version that should be installed
+// Latest is the latest version availabile
+
+# Update a specific package
+npm update <package> // Works on and off for some reason
+// As the above sometimes does not work, can just install the package using:
+npm install <package>
+
+# Update all packages
+npm update
+npm update -g
+
+* // ---------- REMOVING PACKAGES ---------- // *
+# Remove a package
+npm uninstall <package>
+
+* // ---------- VERSIONING ---------- // *
+# Versioning
+1.4.2
+// 1.x.x = Major release
+// x.4.x = Minor release
+// x.x.2 = Patch/fix release (for bugs)
+
+# ^ (Caret)
+^4.x.x
+// All minor and patches OK in major release 4
+// npm will install the latest minor and patch releases for major release 4
+// Will not install a major release version 5
+
+# ~ (Tilde)
+~1.5.x
+// Install the latest patches only
+// More strict versioning approach
+
+# Semantic versioning - use a particular package version
+// Remove the ^ and ~ and just have the version
+// Remain control over dependencies
+
+Examples:
+~version // Approximately equivalent version
+^version // Compatible with version
+version // Must match version exactly
+>version //Must be greater than version
+>=version // Must be greater or equal to version
+1.2.x // 1.2.0, 1.2.1, etc. but not 1.3.0
+
+* // ---------- CLEARING NPM CACHE ---------- // *
+# Verify the npm cache
+npm cache verify
+// Check if there is any problems with the cache
+
+# Force clear npm cache
+npm cache clean --force
+// If there are problems, force clear the cache
+
+* // ---------- NPM AUDIT ---------- // *
+// Check dependencies of the project and make sure they are safe to use
+# Develop a security report of current dependencies
+npm audit
+
+# Automatically fix the audit
+npm audit fix
+
+* // ---------- NPM SCRIPTS ---------- // *
+// Simple command to repeat or perform complex commands
+// docs.npmjs.com/misc/scripts
+// Run all scripts from the package.json file under "scripts" section
+
+# Run the npm
+npm start
+
+# Create your own script
+"name-of-script": "script to run"
+
+# Run a particular script
+npm run <name-of-script>
+
+* // ---------- NPX ---------- // *
+// Install a package/tool temporarily
+// Use the package/tool to perform some function of it
+npm -p @<package> <command of package>
+// e.g. npm -p @angular/cli ng new myapp
+// Create an angular app without actually having the package installed
+
+* // ---------- NPM ALERNATIVES ---------- // *
+# Yarn
+# ni 
+// Combo of npm and Yarn, but is less verbose
